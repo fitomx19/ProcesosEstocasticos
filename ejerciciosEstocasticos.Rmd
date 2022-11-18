@@ -1,0 +1,262 @@
+---
+title: "Ejercicios Procesos Estocasticos"
+output: html_notebook
+author: Adolfo 22cm
+---
+### Ejercicios Resueltos:
+
+
+1.33 Cards are drawn from a standard deck,with replacement,until an ace appears. Simulate the mean and variance of the number of cards required.
+
+
+Numero de cartas = 52
+
+ => n(s) = 52
+ Dejemos E un evento de terner un as de proabilidad
+ 
+ = $n(E)/n(s) = 4/52 = 1/13$
+  
+Probabilidad de no tener un as
+
+= 1 - $1/13$ = $12/13$
+
+Sabemos que n = 2
+
+Media = np = 2($1/13$) = $2/13$
+Varianza = npq = 2($1/13$)($12/13$)
+
+1.37 Solve 1.28
+On any day, the number of accidents on the highway has a Poisson distribution with parameter Λ. The parameter Λ varies from day to day and is itself a random variable. Find the mean and variance of the number of accidents per day when Λ is uniformly distributed on (0, 3
+
+
+$X = numero de accidentes / dia$ 
+
+\[
+\sum_{k=0}^{2}x_{i} = 1 - (x(-^3)*3^k)/k! = 1 - 0.57681 = 0.42319
+\]
+
+$ e^-3 * 3 ^ 0 / 0! = 0.0497$
+$ e^-3 * 3 ^ 1 / 1! = 0.1493$
+$ e^-3 * 3 ^ 2 / 2! = 0.2240$
+$ e^-3 * 3 ^ 3 / 3! = 0.2240$
+
+```{r}
+#rango de poisson 
+rango <- 0:3
+#crear una grafica
+plot(rango, dpois(rango, lambda=4), type='h')
+```
+```{r}
+poissonone <-c( dpois(0, 1) , dpois(1, 2) , dpois(2, 3) ,  dpois(3, 4))
+mediana = median(poissonone)
+varianza = var(poissonone)
+
+sprintf("Mediana %f" , mediana)
+sprintf("Varianza %f" , varianza)
+```
+
+2.25 .- the behavior of dolphins in the presence of tour boats in Patagonia, Argentina is studied in Dans et al. (2012). A Markov chain model is devel- oped, with state space consisting of five primary dolphin activities (socializing,
+EXERCISES 75 traveling, milling, feeding, and resting). The following transition matrix is
+obtained.
+
+Use technology to estimate the long-term distribution of dolphin activity
+
+```{r}
+dolphin <- matrix(c(0.84, 0.11, 0.01, 0.04, 0.00,
+
++ 0.03, 0.80, 0.04, 0.10 ,0.03 ,
+
++ 0.01, 0.15, 0.7 ,0.07, 0.07,
+
++ 0.03, 0.19, 0.02, 0.75, 0.01,
+
++ 0.03, 0.09, 0.05, 0, 0.83),byrow = T,nrow = 5)
+
+```
+
+```{r}
+ library(expm)  
+
+  for (w in 1:20){
+     print(dolphin %^% w)
+  }
+  
+```
+
+Se observa que apartir de la iteracion 14 empiezan a converger los valores
+
+2.26 ->
+
+
+In computer security applications, a honeypot is a trap set on a network to
+detect and counteract computer hackers. Honeypot data are studied in Kimou
+et al. (2010) using Markov chains. The authors obtain honeypot data from a
+central database and observe attacks against four computer ports—80, 135,
+139, and 445—over 1 year. The ports are the states of a Markov chain along
+with a state corresponding to no port is attacked. Weekly data are monitored,
+and the port most often attacked during the week is recorded. The estimated
+Markov transition matrix for weekly attacks is
+
+```{r}
+computadoras <- matrix(c(0, 0, 0, 0, 1,
+
++ 0, 8/13 , 3/13, 1/13 , 1/13 ,
+
++ 1/16 , 3/16, 3/8 , 1/4, 1/8,
+
++ 0, 3/16, 3/8, 1/4, 1/8,
+
++ 0, 1/8, 1/2, 1/8, 1/4),byrow = T,nrow = 5)
+
+```
+
+with initial distribution x = (0, 0, 0, 0, 1).
+(a) Which are the least and most likely attacked ports after 2 weeks?
+(b) Find the long-term distribution of attacked ports
+
+```{r}
+  markov <- function(init,mat,n,labels) { 
+  	if (missing(labels)) labels <- 1:length(init)
+  simlist <- numeric(n+1)
+  states <- 1:length(init)
+  simlist[1] <- sample(states,1,prob=init)
+  for (i in 2:(n+1)) 
+  { simlist[i] <- sample(states,1,prob=mat[simlist[i-1],]) 
+  	
+  }
+  labels[simlist]
+  }
+
+init <- c(0,0,0,0,1) # Starting state 23 is Lung
+n <- 14
+f <- markov(init,computadoras,n)
+
+puertos = c()
+for( x in 1:length(f)){
+ puertos[x] <- f[x]
+}
+sort(table(puertos),decreasing=TRUE)
+
+
+
+```
+
+Se imprime arriba el puerto más atacado y abajo el numero de veces
+
+
+puerto 0 = 80 , puerto 1 = 135 , puerto 2 = 139, puerto 3  = 445 , puerto 4 No hay ataque
+
+
+b)
+
+```{r}
+  for (w in 1:10){
+     print(computadoras %^% w)
+  }
+  
+```
+Se observa que apartir de 10 días se lleva el mismo incremento / decremento por lo que se puede decir que existe una convergencia.
+
+
+2.27 ->
+R : See gamblersruin.R. Simulate gambler’s ruin for a gambler with initial stake $2, playing a fair game.
+(a) Estimate the probability that the gambler is ruined before he wins $5.
+(b) Construct the transition matrix for the associated Markov chain. Estimate
+the desired probability in (a) by taking high matrix powers. (c) Compare your results with the exact probability.
+
+```{r}
+# gamble(k, n, p)
+  #   k: Gambler's initial state
+  #   n: Gambler plays until either $n or Ruin
+  #   p: Probability of winning $1 at each play
+  #   Function returns 1 if gambler is eventually ruined
+  #                    returns 0 if gambler eventually wins $n
+  
+gamble <- function(k,n,p) {
+        stake <- k
+        while (stake > 0 & stake < n) {
+                bet <- sample(c(-1,1),1,prob=c(1-p,p))
+                stake <- stake + bet
+        }
+        if (stake == 0) return(1) else return(0)
+        }   
+```
+
+```{r}
+k <- 2
+
+n <- 5  
+
+p <- 1/2  
+
+trials <- 1000
+
+simlist <- replicate(trials, gamble(k, n, p))
+
+mean(simlist) # Estimate of probability that gambler is ruined
+```
+Using Gamblers ruin probability will be can be calculated by taking higher powers of the transition prob matrix and value taken transition from 2 to 0. The code is given below
+```{r}
+tpm <- matrix(c(1, 0, 0, 0, 0, 0,
+
++ 0.5, 0, 0.5, 0 ,0 ,0,
+
++ 0, 0.5, 0 ,0.5, 0, 0,
+
++ 0, 0, 0.5, 0, 0.5, 0,
+
++ 0, 0, 0, 0.5, 0, 0.5,
+
++ 0, 0, 0, 0, 0, 1),byrow = T,nrow = 6)
+```
+
+```{r}
+ library(expm)   
+  p5<- tpm %^% 5
+  p5
+```
+
+
+```{r}
+p15<- tpm %^% 15
+
+p15
+```
+
+```{r}
+p25<- tpm %^% 25
+
+p25
+```
+
+```{r}
+p50<- tpm %^% 50
+p50
+```
+
+```{r}
+p5[3,1]
+```
+```{r}
+p15[3,1]
+```
+
+```{r}
+ p25[3,1]
+```
+
+```{r}
+p50[3,1]
+```
+
+De los resultados obtenenidos los resultados de probabilidad convergen en 0.6 como incrementos
+
+La probabilidad exacta es (n-k)/n=(5-2)/5=0.6
+
+Resumen
+
+Exact0 = 0.6
+
+Simulacion =0.59
+
+Usando Markov Chain, tpm^5 = 0.375, tpm^15=.573, tpm^25=0.596, tpm^50=0.599
