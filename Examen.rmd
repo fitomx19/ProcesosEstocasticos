@@ -1,6 +1,8 @@
 ---
 title: "Ejercicios Procesos Estocasticos"
-output: html_notebook
+output:
+  pdf_document: default
+  html_notebook: default
 ---
 ### Aviso ->
 Aca pondre todas las utilidades que muestra el libro en la pagina web para facilitar mucho el uso -> 
@@ -82,13 +84,60 @@ plot(tscale,bm(15,1000),type="l")
 
 ```
 
+1.- Primeros Ejercicios de probabilidad -->
+
+
+In a standard deck of cards, the probability that the suit of a random
+card is hearts is 13∕52 = 1∕4. Assume that a standard deck has one card missing.
+A card is picked from the deck. Find the probability that it is a heart.
+
+Solution Assume that the missing card can be any of the 52 cards picked uniformly at
+random. Let M denote the event that the missing card is a heart, with the complement
+Mc
+the event that the missing card is not a heart. Let H denote the event that the card
+that is picked from the deck is a heart. By the law of total probability,
+
+
+$P(H) = P(H|M)P(M) + P(H|M^c)P(M^c)$
+$(\frac{12}{51}) \frac{1}{4} + (\frac{13}{51})\frac{3}{4} = \frac{1}{4}$ 
+
+The result can also be obtained by appealing to symmetry. Since all cards are
+equally likely, and all four suits are equally likely, the argument by symmetry gives
+that the desired probability is 1∕4.
 
 
 
+
+
+The use of polygraphs (lie detectors) is controversial, and many scientists feel that they should be banned. On the contrary, some polygraph advocates
+claim that they are mostly accurate. In 1998, the Supreme Court (United States v.
+Sheffer) supported the right of state and federal governments to bar polygraph evidence in court.
+Assume that one person in a company of 100 employees is a thief. To ind the thief
+the company will administer a polygraph test to all its employees. The lie detector
+has the property that if a subject is a liar, there is a 95% probability that the polygraph
+will detect that they are lying. However, if the subject is telling the truth, there is a
+10% chance the polygraph will report a false positive and assert that the subject is
+lying.
+Assume that a random employee is given the polygraph test and asked whether
+they are the thief. The employee says “no,” and the lie detector reports that they are
+lying. Find the probability that the employee is in fact lying.
+
+Solution Let L denote the event that the employee is a liar. Let D denote the event that
+the lie detector reports that the employee is a liar. The desired probability is P(L|D).
+By Bayes’ rule
+
+$P(L|D) =  \frac{P(D|L)P(L)}{P(D|L)P(L) + P(D|L^c)P(L^c)}$
+
+
+$\frac{(0.95)(0.01)}{(0.95)(0.01)+(0.10)(0.99)}= 0.088$
+
+There is less than a 10% chance that the employee is in fact the thief!
+
+--------------------------------------
 
 Una cadena de markov tiene esta matriz de transicion ->
 
- \begin{pmatrix}
+\begin{pmatrix}
 0.1 & 0.3 & 0.6\\ 
 0 & 0.4 & 0.6\\ 
 0.3 & 0.2 &0.5
@@ -432,3 +481,111 @@ Exact0 = 0.6
 Simulacion =0.59
 
 Usando Markov Chain, tpm^5 = 0.375, tpm^15=.573, tpm^25=0.596, tpm^50=0.599
+
+
+---------------------------------------------------------
+
+```{r}
+gamble <- function(k,n,p) {
+	stake <- k
+	while (stake > 0 & stake < n) {
+		bet <- sample(c(-1,1),1,prob=c(1-p,p))
+		stake <- stake + bet
+	}
+	if (stake == 0) return(1) else return(0)
+} 
+
+gambleVictoria <- function(k,n,p) {
+	stake <- k
+	while (stake > 0 & stake < n) {
+		bet <- sample(c(-1,1),1,prob=c(1-p,p))
+		stake <- stake + bet
+	}
+	if (stake == 0) return(0) else return(1)
+	} 
+```
+
+
+  #   k: Gambler's initial state
+  #   n: Gambler plays until either $n or Ruin
+  #   p: Probability of winning $1 at each play
+  #   Function returns 1 if gambler is eventually ruined
+  #   returns 0 if gambler eventually wins $n
+
+
+See the script file gamblersruin.R. A gambler starts with a 60 initial stake. A) the gambler wins, and loses, each round with probability p=0.50. simulate the probability the gambler wins 100 before he loses everything. B) the gambler wins each round with probability p=0.51. simulate the probability the gambler wins 100 before he loses everything.
+
+
+```{r}
+# gamble(k, n, p)
+  #   k: Gambler's initial state
+  #   n: Gambler plays until either $n or Ruin
+  #   p: Probability of winning $1 at each play
+  #   Function returns 1 if gambler is eventually ruined
+  #                    returns 0 if gambler eventually wins $n
+
+k <- 60 
+n <-  100  
+p <- 1/2 
+p2 <- 0.51  
+
+#Para a 
+
+trials0 <- 100
+simlist0 <- replicate(trials, gambleVictoria(k, n, p))
+xprove0 <- mean(simlist0) 
+print(xprove0)
+
+
+#para b
+
+trials <- 100
+simlist <- replicate(trials0, gambleVictoria(k, n, p2))
+xprove <- mean(simlist) 
+print(xprove)
+
+```
+
+2.14
+There are k songs on Mary’s music player. The player is set to shufle mode,
+which plays songs uniformly at random, sampling with replacement. Thus,
+repeats are possible. Let $X_n$ denote the number of $unique$ songs that have been
+heard after the $n$th play.
+
+(a) Show that $X_0$, $X_1$,...is a Markov chain and give the transition matrix.
+
+
+La matriz de transicion de estado n es 0,1,2,k que denota los numeros de canciones que solo se reprodujeron una sola vez.
+
+La probabilidad de transicion del estado 1 al estado $2-y$ ($1-k$)
+
+\begin{pmatrix}
+estados & 0 & 1 & 2 & - & m & m+1 & - & k-1 & k\\ 
+      0 & 0 & 1 & 0 & - & 0 &   0 & - &   0 & 0\\ 
+      1 & 0 & 0/k & ()k-1k & 0 & - & 0 & - & 0 & 0\\ 
+      - & - & -   &      - & - & - & - & - & - & - \\ 
+      m & 0 & 0   &      0 & - & m/k & (k-m)/k & (k-1)/k & 1/k\\ 
+      - & - & -   &      - & - &  -  &       0 &       0 &    1\\ 
+      k & 0 & 0 &0 &0 & 0 & 0 & 0 & 0 & 1\\
+\end{pmatrix}
+
+
+(b) If Mary has four songs on her music player, ind the probability that all
+songs are heard after six plays
+
+P = $
+\begin{pmatrix}
+estados & 0 & 1 & 2 & 3 & 4 \\
+0 & 0 & 1 & 0 & 0 & 0 \\
+1 & 0 & 1/4 & 3/4 & 0 & 0 \\
+2 & 0 & 0 & 1/2 & 1/2 & 0 \\
+3 & 0 & 0 & 0   & 3/4 & 1/4\\
+4 & 0 & 0 & 0   &   0 &   1\\
+$
+
+Realizando la multiplicacion de seis veces la matriz de transcision al estado de 4 canciones
+
+
+
+
+

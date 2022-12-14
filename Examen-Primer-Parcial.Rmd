@@ -1,0 +1,163 @@
+---
+title: "Examen Primer Parcial"
+author: "Michael Adolfo Huerta Ramírez"
+date: "25 noviembre de 2022"
+asignature: "Procesos Estocasticos"
+output: html_notebook
+---
+1.-Una bolsa contiene una bola roja, 3 verdes, y 5 amarillas. Se escoje una
+muestra de 4 bolas. Sea G el numero de bolas verdes en la muestra. Sea
+Y el número de bolas amarillas en la muestra.
+Encuentre la funci ́on de probabilidad de masa condicional de G dado Y = 2.
+a) Asumiendo que la muestra se escoje con reemplazo.
+b) Asumiendo que la muestra se escoje sin reemplazo.
+
+
+```{r}
+#RESUELTO EN EL CUADERNO
+```
+
+2.-Sea X = {Xn|n ≥ 0} una CM con matriz de transici ́on P, y sea Yn = Xk·n,
+n ≥ 0, para alg ́un k > 0. Demuestre que Y = {Yn} es una CM con matriz
+de transicion Pk
+
+```{r}
+#RESUELTO EN EL CUADERNO
+```
+
+3. Se extraen cartas de una baraja est́andar, con reemplazo, hasta que apa-
+rece un as. Simule la media y la varianza del n ́umero de cartas extráıdas.
+
+```{r}
+#RESUELTO EN EL CUADERNO
+```
+Sabemos que exactamente la probabilidad de encontrar un as es de $1/13$ en una baraja de 52 tarjetas -> simularemos entonces el encontrarla.
+
+Podemos tomar como base el codigo de la ruina del jugador pero ahora un recorrido de una caminata aletoria hasta encontrar el as dentro de la simulacion
+
+```{r}
+# p = probabilidad
+ases <- function(p){
+  tirada <- 0
+  encontrados <- 0
+  
+  	while (encontrados == 0) {
+		as <- sample(c(-1,1),1,prob=c(1-p,p))
+		if(as == 1){
+		  #encontro un as 
+		  encontrados <- 1 
+		}else{
+		  #no es un as 
+		  encontrados <- 0 
+		}
+		tirada <- tirada + 1 
+  	}
+    return(tirada)
+}
+```
+
+```{r}
+#creamos una simulacion
+l <- c()
+i <- 1
+p <- 1/13
+# lo simule 100 veces
+while(i<100) {
+    b<- ases(1/13)/52
+    l<-c(l,b)
+    i=i+1
+}
+print(l)
+
+```
+```{r}
+# media 
+mean(l) 
+#variazna 
+var(l)
+```
+
+4.-En las aplicaciones de seguridad inform ́atica, un honeypot es una trampa
+colocada en una red para detectar y contrarrestar a los piratas inform ́ati-
+cos. Los datos de los honeypots se estudian en Kimou et al. (2010) utili-
+zando cadenas de Markov. Los autores obtienen los datos de los honeypots
+de una base de datos central y observan los ataques contra cuatro puertos
+inforḿaticos, 80, 135 139 y 445 durante un a ̃no. Los puertos son los esta-
+dos de una cadena de Markov, junto con un estado que corresponde a que
+ning ́un puerto es atacado. Se observan los datos semanales, y se registra el
+puerto m ́as atacado durante la semana. La matriz de transici ́on La matriz
+de transici ́on de Markov estimada para los ataques semanales es
+
+Con distribucíon inicial α = (0, 0, 0, 0, 1)
+a) ¿Cúales son los puertos menos y m ́as probablemente atacados al cabo
+de 2 semanas?
+b) Encuentre la distribuci ́on a largo plazo de los puertos atacados.
+
+
+```{r}
+# Creamos la matriz de transicion del ejercicio
+computadoras <- matrix(c(0, 0, 0, 0, 1,
+
++ 0, 8/13 , 3/13, 1/13 , 1/13 ,
+
++ 1/16 , 3/16, 3/8 , 1/4, 1/8,
+
++ 0, 3/16, 3/8, 1/4, 1/8,
+
++ 0, 1/8, 1/2, 1/8, 1/4),byrow = T,nrow = 5)
+
+```
+a)¿Cúales son los puertos menoś y   mas probablemente atacados al cabo
+de 2 semanas?
+```{r}
+#Podemos utilizar el codigo de la caminata aletoria de una cadena de markov
+
+  markov <- function(init,mat,n,labels) { 
+  	if (missing(labels)) labels <- 1:length(init)
+  simlist <- numeric(n+1)
+  states <- 1:length(init)
+  simlist[1] <- sample(states,1,prob=init)
+  for (i in 2:(n+1)) 
+  { simlist[i] <- sample(states,1,prob=mat[simlist[i-1],]) 
+  	
+  }
+  labels[simlist]
+  }
+
+init <- c(0,0,0,0,1) # condiciones inciales
+n <- 13
+f <- markov(init,computadoras,n)
+
+puertos = c()
+for( x in 1:length(f)){
+ puertos[x] <- f[x]
+}
+#imprimimos los puertos -> pero en este caso son los estados de los puertos
+
+sort(table(puertos),decreasing=TRUE)
+```
+Aca la interpretacion es que el puerto: 
+
+1 = 80
+2 = 135
+3 = 139 
+4 = 445
+
+donde debajo de el numero que le pertenece al puerto es las veces que resulto atacado ->
+
+puertos
+3 5 2 4 
+7 4 2 1 
+
+un ejemplo aca el puerto 3 (puerto 139) fuer atacado 7 veces en 14 dias , una cifra muy alta
+
+b)Encuentre la distribuci ́on a largo plazo de los puertos atacados.
+
+```{r}
+  for (w in 1:9){
+     print(computadoras^w)
+  }
+```
+Se observa que apartir de 9 días se lleva el mismo incremento / decremento por lo que se puede decir que existe una convergencia.
+
+

@@ -1,0 +1,1109 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Ejercicios Procesos Estocasticos},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Ejercicios Procesos Estocasticos}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{aviso--}{%
+\subsubsection{Aviso -\textgreater{}}\label{aviso--}}
+
+Aca pondre todas las utilidades que muestra el libro en la pagina web
+para facilitar mucho el uso -\textgreater{}
+
+Pueden minimizar el código para que no este tan estorbozo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\# Matrix powers \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\CommentTok{\# matrixpower(mat,k) mat\^{}k}
+\CommentTok{\#}
+\NormalTok{matrixpower }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(mat,k) \{}
+    \ControlFlowTok{if}\NormalTok{ (k }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\FunctionTok{return}\NormalTok{ (}\FunctionTok{diag}\NormalTok{(}\FunctionTok{dim}\NormalTok{(mat)[}\DecValTok{1}\NormalTok{])) }
+    \ControlFlowTok{if}\NormalTok{ (k }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) }\FunctionTok{return}\NormalTok{(mat)}
+    \ControlFlowTok{if}\NormalTok{ (k }\SpecialCharTok{\textgreater{}} \DecValTok{1}\NormalTok{) }\FunctionTok{return}\NormalTok{( mat }\SpecialCharTok{\%*\%} \FunctionTok{matrixpower}\NormalTok{(mat, k}\DecValTok{{-}1}\NormalTok{))}
+\NormalTok{ \}}
+
+\DocumentationTok{\#\#\#\#\#\# Simulate discrete{-}time Markov chain \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\CommentTok{\# Simulates n steps of a Markov chain }
+\CommentTok{\# markov(init,mat,n,states)}
+\CommentTok{\# Generates X0, ..., Xn for a Markov chain with initiial}
+\CommentTok{\#  distribution init and transition matrix mat}
+\CommentTok{\# Labels can be a character vector of states; default is 1, .... k}
+
+\NormalTok{markov }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(init,mat,n,labels) \{ }
+    \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{missing}\NormalTok{(labels)) labels }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(init)}
+\NormalTok{simlist }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(n}\SpecialCharTok{+}\DecValTok{1}\NormalTok{)}
+\NormalTok{states }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(init)}
+\NormalTok{simlist[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(states,}\DecValTok{1}\NormalTok{,}\AttributeTok{prob=}\NormalTok{init)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{2}\SpecialCharTok{:}\NormalTok{(n}\SpecialCharTok{+}\DecValTok{1}\NormalTok{)) }
+\NormalTok{    \{ simlist[i] }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(states,}\DecValTok{1}\NormalTok{,}\AttributeTok{prob=}\NormalTok{mat[simlist[i}\DecValTok{{-}1}\NormalTok{],]) \}}
+\NormalTok{labels[simlist]}
+\NormalTok{\}}
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\DocumentationTok{\#\#\#\#\#\#\#\# Build the transition matrix for random walk on n{-}cycle}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{25}
+\NormalTok{r1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\SpecialCharTok{/}\DecValTok{2}\NormalTok{,}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,n}\DecValTok{{-}3}\NormalTok{),}\DecValTok{1}\SpecialCharTok{/}\DecValTok{2}\NormalTok{)}
+\NormalTok{tmat }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{,}\AttributeTok{nrow=}\NormalTok{n,}\AttributeTok{ncol=}\NormalTok{n)}
+\NormalTok{tmat[}\DecValTok{1}\NormalTok{,] }\OtherTok{\textless{}{-}}\NormalTok{ r1 }
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{(n}\DecValTok{{-}1}\NormalTok{)) tmat[}\DecValTok{26}\SpecialCharTok{{-}}\NormalTok{i,] }\OtherTok{\textless{}{-}}\NormalTok{ r1[}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ (i}\SpecialCharTok{:}\NormalTok{(n}\SpecialCharTok{+}\NormalTok{i}\DecValTok{{-}1}\NormalTok{)) }\SpecialCharTok{\%\%}\NormalTok{ n]}
+
+\DocumentationTok{\#\#\# Start the RW on vertex 1}
+\NormalTok{init }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,n}\DecValTok{{-}1}\NormalTok{))}
+
+\NormalTok{sim }\OtherTok{\textless{}{-}} \FunctionTok{markov}\NormalTok{(init,tmat,}\DecValTok{100}\NormalTok{) }\CommentTok{\# 100 steps}
+\NormalTok{sim}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1]  1  2  1 25  1 25 24 23 22 21 20 21 20 21 22 23 24 23 24 25  1  2  3  2  1
+##  [26]  2  1  2  3  2  3  2  3  2  3  4  5  4  3  2  3  4  5  4  5  4  3  4  3  4
+##  [51]  5  4  5  4  5  4  3  4  3  2  3  2  3  4  3  4  3  2  1  2  1  2  3  4  3
+##  [76]  4  3  4  5  6  7  6  7  8  7  6  5  4  5  4  5  6  7  6  7  8  7  6  5  4
+## [101]  5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(sim)}\SpecialCharTok{/}\DecValTok{101} \CommentTok{\# Proportion of visited sites in first 100 steps}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## sim
+##          1          2          3          4          5          6          7 
+## 0.07920792 0.13861386 0.17821782 0.18811881 0.11881188 0.05940594 0.05940594 
+##          8         20         21         22         23         24         25 
+## 0.01980198 0.01980198 0.02970297 0.01980198 0.02970297 0.02970297 0.02970297
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sim2 }\OtherTok{\textless{}{-}} \FunctionTok{markov}\NormalTok{(init,tmat,}\DecValTok{100000}\NormalTok{) }\CommentTok{\#100,000 steps}
+\FunctionTok{table}\NormalTok{(sim2)}\SpecialCharTok{/}\DecValTok{100001} \CommentTok{\# Proportion of visited sites in 100,000 steps}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## sim2
+##          1          2          3          4          5          6          7 
+## 0.04205958 0.04256957 0.04183958 0.04244958 0.04293957 0.04269957 0.04086959 
+##          8          9         10         11         12         13         14 
+## 0.03982960 0.03959960 0.03811962 0.03709963 0.03856961 0.04033960 0.03906961 
+##         15         16         17         18         19         20         21 
+## 0.03765962 0.03739963 0.03907961 0.04152958 0.04109959 0.03988960 0.03912961 
+##         22         23         24         25 
+## 0.03852961 0.03892961 0.03898961 0.03970960
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+
+\DocumentationTok{\#\#\# Stationary distribution of discrete{-}time Markov chain}
+\DocumentationTok{\#\#\#  (uses eigenvectors)}
+\DocumentationTok{\#\#\#}
+\NormalTok{stationary }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(mat) \{}
+\NormalTok{x }\OtherTok{=} \FunctionTok{eigen}\NormalTok{(}\FunctionTok{t}\NormalTok{(mat))}\SpecialCharTok{$}\NormalTok{vectors[,}\DecValTok{1}\NormalTok{]}
+\FunctionTok{as.double}\NormalTok{(x}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(x))}
+\NormalTok{\}}
+
+\DocumentationTok{\#\# Example of stationary(mat)}
+\NormalTok{mat }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\SpecialCharTok{/}\DecValTok{4}\NormalTok{,}\DecValTok{1}\SpecialCharTok{/}\DecValTok{4}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\SpecialCharTok{/}\DecValTok{8}\NormalTok{,}\DecValTok{2}\SpecialCharTok{/}\DecValTok{3}\NormalTok{,}\DecValTok{5}\SpecialCharTok{/}\DecValTok{24}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\SpecialCharTok{/}\DecValTok{6}\NormalTok{,}\DecValTok{5}\SpecialCharTok{/}\DecValTok{6}\NormalTok{),}\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\NormalTok{T)}
+\NormalTok{mat}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1]      [,2]      [,3]
+## [1,] 0.750 0.2500000 0.0000000
+## [2,] 0.125 0.6666667 0.2083333
+## [3,] 0.000 0.1666667 0.8333333
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lambda }\OtherTok{\textless{}{-}} \FunctionTok{stationary}\NormalTok{(mat)}
+\NormalTok{lambda}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1818182 0.3636364 0.4545455
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lambda }\SpecialCharTok{\%*\%}\NormalTok{ mat}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]      [,2]      [,3]
+## [1,] 0.1818182 0.3636364 0.4545455
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\DocumentationTok{\#\#\# Standard Brownian motion}
+\DocumentationTok{\#\#\# bm(t,n) generates B\_0, B\_\{t/n\}, B\_\{2t/n\}, . . . , B\_\{(n{-}1)t/n, B\_t\}}
+\DocumentationTok{\#\#\#}
+\NormalTok{bm }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(t,n) \{}
+    \FunctionTok{cumsum}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FunctionTok{rnorm}\NormalTok{(n,}\DecValTok{0}\NormalTok{,}\FunctionTok{sqrt}\NormalTok{(t}\SpecialCharTok{/}\NormalTok{n))))}
+\NormalTok{\}}
+\DocumentationTok{\#\#\#\# Example of BM plot on [0,15]}
+\NormalTok{tscale }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{15}\NormalTok{,}\DecValTok{15}\SpecialCharTok{/}\DecValTok{1000}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(tscale,}\FunctionTok{bm}\NormalTok{(}\DecValTok{15}\NormalTok{,}\DecValTok{1000}\NormalTok{),}\AttributeTok{type=}\StringTok{"l"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Examen_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+1.- Primeros Ejercicios de probabilidad --\textgreater{}
+
+In a standard deck of cards, the probability that the suit of a random
+card is hearts is 13∕52 = 1∕4. Assume that a standard deck has one card
+missing. A card is picked from the deck. Find the probability that it is
+a heart.
+
+Solution Assume that the missing card can be any of the 52 cards picked
+uniformly at random. Let M denote the event that the missing card is a
+heart, with the complement Mc the event that the missing card is not a
+heart. Let H denote the event that the card that is picked from the deck
+is a heart. By the law of total probability,
+
+\(P(H) = P(H|M)P(M) + P(H|M^c)P(M^c)\)
+\((\frac{12}{51}) \frac{1}{4} + (\frac{13}{51})\frac{3}{4} = \frac{1}{4}\)
+
+The result can also be obtained by appealing to symmetry. Since all
+cards are equally likely, and all four suits are equally likely, the
+argument by symmetry gives that the desired probability is 1∕4.
+
+The use of polygraphs (lie detectors) is controversial, and many
+scientists feel that they should be banned. On the contrary, some
+polygraph advocates claim that they are mostly accurate. In 1998, the
+Supreme Court (United States v. Sheffer) supported the right of state
+and federal governments to bar polygraph evidence in court. Assume that
+one person in a company of 100 employees is a thief. To ind the thief
+the company will administer a polygraph test to all its employees. The
+lie detector has the property that if a subject is a liar, there is a
+95\% probability that the polygraph will detect that they are lying.
+However, if the subject is telling the truth, there is a 10\% chance the
+polygraph will report a false positive and assert that the subject is
+lying. Assume that a random employee is given the polygraph test and
+asked whether they are the thief. The employee says ``no,'' and the lie
+detector reports that they are lying. Find the probability that the
+employee is in fact lying.
+
+Solution Let L denote the event that the employee is a liar. Let D
+denote the event that the lie detector reports that the employee is a
+liar. The desired probability is P(L\textbar D). By Bayes' rule
+
+\(P(L|D) = \frac{P(D|L)P(L)}{P(D|L)P(L) + P(D|L^c)P(L^c)}\)
+
+\(\frac{(0.95)(0.01)}{(0.95)(0.01)+(0.10)(0.99)}= 0.088\)
+
+There is less than a 10\% chance that the employee is in fact the thief!
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Una cadena de markov tiene esta matriz de transicion -\textgreater{}
+
+\begin{pmatrix}
+0.1 & 0.3 & 0.6\\ 
+0 & 0.4 & 0.6\\ 
+0.3 & 0.2 &0.5
+\end{pmatrix}
+
+\[
+P(x_7 = 3 | P_6 = 2)
+\] \[
+P(X_9 = 2 | X_1 = 2 , X_ = 1 , X_7 = 3 )
+\] \[
+p(x_0 = 3 | x_1 = 1)
+\]
+
+\[
+E(X_2)
+\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{matriz }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{,}\FloatTok{0.3}\NormalTok{,}\FloatTok{0.6}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.4}\NormalTok{,}\FloatTok{0.6}\NormalTok{,}\FloatTok{0.3}\NormalTok{,}\FloatTok{0.2}\NormalTok{,}\FloatTok{0.5}\NormalTok{), }\AttributeTok{ncol =} \DecValTok{3}\NormalTok{, }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{)}
+\NormalTok{matriz}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]  0.1  0.0  0.3
+## [2,]  0.3  0.4  0.2
+## [3,]  0.6  0.6  0.5
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Solo localiza 3,2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{matriz\_cuadrada }\OtherTok{\textless{}{-}}\NormalTok{ matriz}\SpecialCharTok{\%*\%}\NormalTok{matriz}
+\NormalTok{matriz\_cuadrada}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,] 0.19 0.18 0.18
+## [2,] 0.27 0.28 0.27
+## [3,] 0.54 0.54 0.55
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#localizar 3,1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{2}
+\item
+  \((0.3*0.5) / 0.3*0.4*0.2+0.2*0.3*0.5\)
+\item
+  \url{https://matrixcalc.org/es/\#diagonalize(\%7B\%7B0\%2e1,0\%2e3,0\%2e6\%7D,\%7B0,0\%2e4,0\%2e6\%7D,\%7B0\%2e3,0\%2e2,0\%2e5\%7D\%7D})
+\end{enumerate}
+
+\((0.182,0.273,0.545) * (1,2,3)\)
+
+2.3 Considerando el modelo de wright fisher con una poblacion de 3
+gener, encuentre la probabilidad que no no halla A llletes en 3
+generaciones
+
+Veamos como crear la matriz
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{factorial\_funcion}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(k,i,j)\{}
+
+\NormalTok{  a }\OtherTok{\textless{}{-}}\NormalTok{ (}\FunctionTok{factorial}\NormalTok{(k)}\SpecialCharTok{/}\FunctionTok{factorial}\NormalTok{(j))}\SpecialCharTok{*}\FunctionTok{factorial}\NormalTok{(k}\SpecialCharTok{{-}}\NormalTok{j)}
+\NormalTok{  b }\OtherTok{\textless{}{-}}\NormalTok{ (i}\SpecialCharTok{/}\NormalTok{k)}\SpecialCharTok{\^{}}\NormalTok{j}
+\NormalTok{  c }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ (i}\SpecialCharTok{/}\NormalTok{k))}\SpecialCharTok{\^{}}\NormalTok{(k}\SpecialCharTok{{-}}\NormalTok{j)}
+  
+  \FunctionTok{print}\NormalTok{(a}\SpecialCharTok{*}\NormalTok{b}\SpecialCharTok{*}\NormalTok{c)}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#solo los estados correspondientes}
+\NormalTok{aa}\OtherTok{\textless{}{-}}\NormalTok{(}\FunctionTok{factorial\_funcion}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2222222
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ab}\OtherTok{\textless{}{-}}\NormalTok{(}\FunctionTok{factorial\_funcion}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8888889
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ac}\OtherTok{\textless{}{-}}\NormalTok{(}\FunctionTok{factorial\_funcion}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.4444444
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ad}\OtherTok{\textless{}{-}}\NormalTok{(}\FunctionTok{factorial\_funcion}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2962963
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ae}\OtherTok{\textless{}{-}}\NormalTok{(}\FunctionTok{factorial\_funcion}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.03703704
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{matriz2 }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,ad,ae,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,ac,aa,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,aa,ac,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,ae,ad,}\DecValTok{1}\NormalTok{),  }\AttributeTok{nrow =} \DecValTok{4}\NormalTok{ ,}\AttributeTok{ncol =} \DecValTok{4}\NormalTok{,)}
+\NormalTok{matriz2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            [,1]      [,2]      [,3]       [,4]
+## [1,] 1.00000000 0.0000000 0.0000000 0.00000000
+## [2,] 0.29629630 0.4444444 0.2222222 0.03703704
+## [3,] 0.03703704 0.2222222 0.4444444 0.29629630
+## [4,] 0.00000000 0.0000000 0.0000000 1.00000000
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{matriz2\_cuadrada }\OtherTok{\textless{}{-}}\NormalTok{ matriz2}\SpecialCharTok{\%*\%}\NormalTok{matriz2}\SpecialCharTok{\%*\%}\NormalTok{matriz2}
+\NormalTok{matriz2\_cuadrada}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]      [,2]      [,3]      [,4]
+## [1,] 1.0000000 0.0000000 0.0000000 0.0000000
+## [2,] 0.5166895 0.1536351 0.1426612 0.1870142
+## [3,] 0.1870142 0.1426612 0.1536351 0.5166895
+## [4,] 0.0000000 0.0000000 0.0000000 1.0000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#localizar 3,1}
+\end{Highlighting}
+\end{Shaded}
+
+Observando veemos que no exista A (alelo) es de 0.516 o 51.6\%
+
+Example 2.18 (Lung cancer study) Medical researchers can use simulation
+to study the progression of lung cancer in the body, as described in
+Example 2.12. The 50 × 50 transition matrix is stored in an Excel
+spreadsheet and can be downloaded into R from the ile cancerstudy.R. The
+initial distribution is a vector of all 0s with a 1 at position 23,
+corresponding to the lung. See the documentation in the script ile for
+the 50-site numbering system. Common sites are 24 and 25 (lymph nodes)
+and 22 (liver). Following are several simulations of the process for
+eight steps.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mat }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"lungcancer.csv"}\NormalTok{,}\AttributeTok{header=}\NormalTok{T)}
+\NormalTok{init }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{22}\NormalTok{),}\DecValTok{1}\NormalTok{,}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{27}\NormalTok{)) }\CommentTok{\# Starting state 23 is Lung}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{8}
+\FunctionTok{markov}\NormalTok{(init,mat,n)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 23  1 24 18 24 30 24  7 30
+\end{verbatim}
+
+Graduados -\textgreater{} University administrators have developed a
+Markov model to simu- late graduation rates at their school. Students
+might drop out, repeat a year, or move on to the next year. Students
+have a 3\% chance of repeating the year. First-years and sophomores have
+a 6\% chance of dropping out. For juniors and seniors, the drop-out rate
+is 4\%.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{init }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{) }\CommentTok{\#Student starts as first{-}year}
+\NormalTok{P }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.06}\NormalTok{,}\FloatTok{0.03}\NormalTok{,}\FloatTok{0.91}\NormalTok{,}\DecValTok{0}\NormalTok{,}
+\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.06}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.03}\NormalTok{,}\FloatTok{0.91}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.04}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.03}\NormalTok{,}\FloatTok{0.93}\NormalTok{,}\DecValTok{0}\NormalTok{,}
+\FloatTok{0.04}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.03}\NormalTok{,}\FloatTok{0.93}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{),}\AttributeTok{nrow=}\DecValTok{6}\NormalTok{,}\AttributeTok{byrow=}\NormalTok{T)}
+\NormalTok{states }\OtherTok{\textless{}{-}}
+\FunctionTok{c}\NormalTok{(}\StringTok{"Drop"}\NormalTok{,}\StringTok{"Fr"}\NormalTok{,}\StringTok{"So"}\NormalTok{,}\StringTok{"Jr"}\NormalTok{,}\StringTok{"Se"}\NormalTok{,}\StringTok{"Grad"}\NormalTok{)}
+ \FunctionTok{rownames}\NormalTok{(P) }\OtherTok{\textless{}{-}}\NormalTok{ states}
+ \FunctionTok{colnames}\NormalTok{(P) }\OtherTok{\textless{}{-}}\NormalTok{ states}
+
+\FunctionTok{markov}\NormalTok{(init,P,}\DecValTok{10}\NormalTok{,states)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Fr"   "So"   "Jr"   "Se"   "Se"   "Grad" "Grad" "Grad" "Grad" "Grad"
+## [11] "Grad"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sim }\OtherTok{\textless{}{-}} \FunctionTok{replicate}\NormalTok{(}\DecValTok{10000}\NormalTok{,}\FunctionTok{markov}\NormalTok{(init,P,}\DecValTok{10}\NormalTok{,states)[}\DecValTok{11}\NormalTok{])}
+\FunctionTok{table}\NormalTok{(sim)}\SpecialCharTok{/}\DecValTok{10000}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## sim
+##   Drop   Grad 
+## 0.1939 0.8061
+\end{verbatim}
+
+Simulacion de gamblers Ruin -\textgreater{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gen.ruin }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(n, x.cnt, y.cnt, x.p)\{}
+\NormalTok{  x.cnt.c }\OtherTok{=}\NormalTok{ x.cnt}
+\NormalTok{  y.cnt.c }\OtherTok{=}\NormalTok{ y.cnt}
+\NormalTok{  x.rnd }\OtherTok{=} \FunctionTok{rbinom}\NormalTok{(n, }\DecValTok{1}\NormalTok{, }\AttributeTok{p=}\NormalTok{x.p)}
+\NormalTok{  x.rnd[x.rnd}\SpecialCharTok{==}\DecValTok{0}\NormalTok{] }\OtherTok{=} \SpecialCharTok{{-}}\DecValTok{1}
+\NormalTok{  y.rnd }\OtherTok{=}\NormalTok{ x.rnd}\SpecialCharTok{*{-}}\DecValTok{1}
+\NormalTok{  x.cum.sum }\OtherTok{=} \FunctionTok{cumsum}\NormalTok{(x.rnd)}\SpecialCharTok{+}\NormalTok{x.cnt}
+\NormalTok{  y.cum.sum }\OtherTok{=} \FunctionTok{cumsum}\NormalTok{(y.rnd)}\SpecialCharTok{+}\NormalTok{y.cnt}
+  
+\NormalTok{  ruin.data }\OtherTok{=} \FunctionTok{cumsum}\NormalTok{(x.rnd)}\SpecialCharTok{+}\NormalTok{x.cnt}
+  
+  \ControlFlowTok{if}\NormalTok{( }\FunctionTok{any}\NormalTok{( }\FunctionTok{which}\NormalTok{(ruin.data}\SpecialCharTok{\textgreater{}=}\NormalTok{x.cnt}\SpecialCharTok{+}\NormalTok{y.cnt)) }\SpecialCharTok{|} \FunctionTok{any}\NormalTok{(}\FunctionTok{which}\NormalTok{(ruin.data}\SpecialCharTok{\textless{}=}\DecValTok{0}\NormalTok{)))\{cut.data }\OtherTok{=} \DecValTok{1}\SpecialCharTok{+}\FunctionTok{min}\NormalTok{( }\FunctionTok{which}\NormalTok{(ruin.data}\SpecialCharTok{\textgreater{}=}\NormalTok{x.cnt}\SpecialCharTok{+}\NormalTok{y.cnt), }\FunctionTok{which}\NormalTok{(ruin.data}\SpecialCharTok{\textless{}=}\DecValTok{0}\NormalTok{) )}
+  
+\NormalTok{  ruin.data[cut.data}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(ruin.data)] }\OtherTok{=} \DecValTok{0}
+  
+\NormalTok{  \}}
+  
+  \FunctionTok{return}\NormalTok{(ruin.data)}
+  
+\NormalTok{  \}}
+\NormalTok{n.reps }\OtherTok{=} \DecValTok{10000}
+\NormalTok{ruin.sim }\OtherTok{=} \FunctionTok{replicate}\NormalTok{(n.reps, }\FunctionTok{gen.ruin}\NormalTok{(}\AttributeTok{n=}\DecValTok{1000}\NormalTok{, }\AttributeTok{x.cnt=}\DecValTok{5}\NormalTok{, }\AttributeTok{y.cnt=}\DecValTok{10}\NormalTok{, }\AttributeTok{x.p=}\NormalTok{.}\DecValTok{6}\NormalTok{))}
+\NormalTok{ruin.sim[ruin.sim}\SpecialCharTok{==}\DecValTok{0}\NormalTok{] }\OtherTok{=} \ConstantTok{NA}
+\FunctionTok{hist}\NormalTok{( }\FunctionTok{apply}\NormalTok{(ruin.sim}\SpecialCharTok{==}\DecValTok{15} \SpecialCharTok{|} \FunctionTok{is.na}\NormalTok{(ruin.sim), }\DecValTok{2}\NormalTok{, which.max) , }\AttributeTok{nclass=}\DecValTok{100}\NormalTok{, }\AttributeTok{col=}\StringTok{\textquotesingle{}8\textquotesingle{}}\NormalTok{, }\AttributeTok{main=}\StringTok{"Distribution of Number of Turns"}\NormalTok{,}
+\AttributeTok{xlab=}\StringTok{"Turn Number"}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\FunctionTok{mean}\NormalTok{(}\FunctionTok{apply}\NormalTok{(ruin.sim}\SpecialCharTok{==}\DecValTok{15} \SpecialCharTok{|} \FunctionTok{is.na}\NormalTok{(ruin.sim), }\DecValTok{2}\NormalTok{, which.max)), }\AttributeTok{lwd=}\DecValTok{3}\NormalTok{, }\AttributeTok{col=}\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\FunctionTok{median}\NormalTok{(}\FunctionTok{apply}\NormalTok{(ruin.sim}\SpecialCharTok{==}\DecValTok{15} \SpecialCharTok{|} \FunctionTok{is.na}\NormalTok{(ruin.sim), }\DecValTok{2}\NormalTok{, which.max)), }\AttributeTok{lwd=}\DecValTok{3}\NormalTok{, }\AttributeTok{col=}\StringTok{\textquotesingle{}green\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Examen_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x.annihilation }\OtherTok{=} \FunctionTok{apply}\NormalTok{(ruin.sim}\SpecialCharTok{==}\DecValTok{15}\NormalTok{, }\DecValTok{2}\NormalTok{, which.max)}
+\NormalTok{( }\AttributeTok{prob.x.annilate =} \FunctionTok{length}\NormalTok{(x.annihilation[x.annihilation}\SpecialCharTok{!=}\DecValTok{1}\NormalTok{]) }\SpecialCharTok{/}\NormalTok{ n.reps )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8673
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{state.cnt }\OtherTok{=}\NormalTok{ ruin.sim}
+\NormalTok{state.cnt[state.cnt}\SpecialCharTok{!=}\DecValTok{15}\NormalTok{] }\OtherTok{=} \DecValTok{0}
+\NormalTok{state.cnt[state.cnt}\SpecialCharTok{==}\DecValTok{15}\NormalTok{] }\OtherTok{=} \DecValTok{1}
+\NormalTok{mean.state }\OtherTok{=} \FunctionTok{apply}\NormalTok{(ruin.sim, }\DecValTok{1}\NormalTok{, mean, }\AttributeTok{na.rm=}\NormalTok{T)}
+\FunctionTok{plot}\NormalTok{(mean.state, }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FunctionTok{which.max}\NormalTok{(mean.state)), }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{20}\NormalTok{), }\AttributeTok{ylab=}\StringTok{"Points"}\NormalTok{, }\AttributeTok{xlab=}\StringTok{"Number of Plays"}\NormalTok{, }\AttributeTok{pch=}\DecValTok{16}\NormalTok{, }\AttributeTok{cex=}\NormalTok{.}\DecValTok{5}\NormalTok{, }\AttributeTok{col=}\StringTok{\textquotesingle{}green\textquotesingle{}}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(mean.state, }\AttributeTok{col=}\StringTok{\textquotesingle{}green\textquotesingle{}}\NormalTok{)}
+\FunctionTok{points}\NormalTok{(}\DecValTok{15}\SpecialCharTok{{-}}\NormalTok{mean.state, }\AttributeTok{pch=}\DecValTok{16}\NormalTok{, }\AttributeTok{cex=}\NormalTok{.}\DecValTok{5}\NormalTok{, }\AttributeTok{col=}\StringTok{\textquotesingle{}blue\textquotesingle{}}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\DecValTok{15}\SpecialCharTok{{-}}\NormalTok{mean.state, }\AttributeTok{col=}\StringTok{\textquotesingle{}blue\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Examen_files/figure-latex/unnamed-chunk-10-2.pdf}
+
+Changes in the distribution of wetlands in Yinchuan Plain, China are
+studied in Zhang et al.~(2011). Wetlands are considered among the most
+important ecosystems on earth. A Markov model is developed to track
+yearly changes in wetland type. Based on imaging and satellite data from
+1991, 1999, and 2006, researchers measured annual distributions of
+wetland type throughout the region and estimated the Markov transition
+matrix
+
+The state Non refers to nonwetland regions. Based dict that ``The
+wetland distribution will essentially be in a Plain in approximately 100
+years.'' 0.005 0.001 0.020 0.252 0.107 0.005 0.043 0.508 0.015 0.002
+0.004 0.665 0.007 0.007 0.025 With technology one checks that P100 =
+P101 has identical rows. The common row gives the predicted long-term,
+steady-state wetland distribution
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{P }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FloatTok{0.342}\NormalTok{,}\FloatTok{0.005}\NormalTok{,}\FloatTok{0.001}\NormalTok{,}\FloatTok{0.020}\NormalTok{,}\FloatTok{0.632}\NormalTok{,}\FloatTok{0.001}\NormalTok{,}\FloatTok{0.252}\NormalTok{,}\FloatTok{0.107}\NormalTok{,}\FloatTok{0.005}\NormalTok{,}\FloatTok{0.635}\NormalTok{,}\DecValTok{0}\NormalTok{,}\FloatTok{0.043}\NormalTok{,}\FloatTok{0.508}\NormalTok{,}\FloatTok{0.015}\NormalTok{,}\FloatTok{0.434}\NormalTok{,}\FloatTok{0.001}\NormalTok{,}\FloatTok{0.002}\NormalTok{,}\FloatTok{0.004}\NormalTok{,}\FloatTok{0.665}\NormalTok{,}\FloatTok{0.328}\NormalTok{,}\FloatTok{0.007}\NormalTok{,}\FloatTok{0.007}\NormalTok{,}\FloatTok{0.007}\NormalTok{,}\FloatTok{0.025}\NormalTok{,}\FloatTok{0.954}\NormalTok{),}\AttributeTok{nrow=}\DecValTok{5}\NormalTok{,}\AttributeTok{byrow=}\NormalTok{T)}
+\NormalTok{P}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1]  [,2]  [,3]  [,4]  [,5]
+## [1,] 0.342 0.005 0.001 0.020 0.632
+## [2,] 0.001 0.252 0.107 0.005 0.635
+## [3,] 0.000 0.043 0.508 0.015 0.434
+## [4,] 0.001 0.002 0.004 0.665 0.328
+## [5,] 0.007 0.007 0.007 0.025 0.954
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{matrixpower}\NormalTok{(P,}\DecValTok{100}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             [,1]        [,2]       [,3]       [,4]      [,5]
+## [1,] 0.009661416 0.009528062 0.01541038 0.06835286 0.8970473
+## [2,] 0.009661416 0.009528062 0.01541038 0.06835286 0.8970473
+## [3,] 0.009661416 0.009528062 0.01541038 0.06835286 0.8970473
+## [4,] 0.009661416 0.009528062 0.01541038 0.06835286 0.8970473
+## [5,] 0.009661416 0.009528062 0.01541038 0.06835286 0.8970473
+\end{verbatim}
+
+1.33 Cards are drawn from a standard deck,with replacement,until an ace
+appears. Simulate the mean and variance of the number of cards required.
+
+Numero de cartas = 52
+
+=\textgreater{} n(s) = 52 Dejemos E un evento de terner un as de
+proabilidad
+
+= \(n(E)/n(s) = 4/52 = 1/13\)
+
+Probabilidad de no tener un as
+
+= 1 - \(1/13\) = \(12/13\)
+
+Sabemos que n = 2
+
+Media = np = 2(\(1/13\)) = \(2/13\) Varianza = npq =
+2(\(1/13\))(\(12/13\))
+
+1.37 Solve 1.28 On any day, the number of accidents on the highway has a
+Poisson distribution with parameter Λ. The parameter Λ varies from day
+to day and is itself a random variable. Find the mean and variance of
+the number of accidents per day when Λ is uniformly distributed on (0, 3
+
+\(X = numero de accidentes / dia\)
+
+\[
+\sum_{k=0}^{2}x_{i} = 1 - (x(-^3)*3^k)/k! = 1 - 0.57681 = 0.42319
+\]
+
+\$ e\^{}-3 * 3 \^{} 0 / 0! = 0.0497\$ \$ e\^{}-3 * 3 \^{} 1 / 1! =
+0.1493\$ \$ e\^{}-3 * 3 \^{} 2 / 2! = 0.2240\$ \$ e\^{}-3 * 3 \^{} 3 /
+3! = 0.2240\$
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#rango de poisson }
+\NormalTok{rango }\OtherTok{\textless{}{-}} \DecValTok{0}\SpecialCharTok{:}\DecValTok{3}
+\CommentTok{\#crear una grafica}
+\FunctionTok{plot}\NormalTok{(rango, }\FunctionTok{dpois}\NormalTok{(rango, }\AttributeTok{lambda=}\DecValTok{4}\NormalTok{), }\AttributeTok{type=}\StringTok{\textquotesingle{}h\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Examen_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{poissonone }\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{( }\FunctionTok{dpois}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{) , }\FunctionTok{dpois}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{) , }\FunctionTok{dpois}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{) ,  }\FunctionTok{dpois}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\NormalTok{mediana }\OtherTok{=} \FunctionTok{median}\NormalTok{(poissonone)}
+\NormalTok{varianza }\OtherTok{=} \FunctionTok{var}\NormalTok{(poissonone)}
+
+\FunctionTok{sprintf}\NormalTok{(}\StringTok{"Mediana \%f"}\NormalTok{ , mediana)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Mediana 0.247356"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sprintf}\NormalTok{(}\StringTok{"Varianza \%f"}\NormalTok{ , varianza)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Varianza 0.005714"
+\end{verbatim}
+
+2.25 .- the behavior of dolphins in the presence of tour boats in
+Patagonia, Argentina is studied in Dans et al.~(2012). A Markov chain
+model is devel- oped, with state space consisting of five primary
+dolphin activities (socializing, EXERCISES 75 traveling, milling,
+feeding, and resting). The following transition matrix is obtained.
+
+2.27 -\textgreater{}
+
+R : See gamblersruin.R. Simulate gambler's ruin for a gambler with
+initial stake \$2, playing a fair game. (a) Estimate the probability
+that the gambler is ruined before he wins \$5. (b) Construct the
+transition matrix for the associated Markov chain. Estimate the desired
+probability in (a) by taking high matrix powers. (c) Compare your
+results with the exact probability.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# gamble(k, n, p)}
+  \CommentTok{\#   k: Gambler\textquotesingle{}s initial state}
+  \CommentTok{\#   n: Gambler plays until either $n or Ruin}
+  \CommentTok{\#   p: Probability of winning $1 at each play}
+  \CommentTok{\#   Function returns 1 if gambler is eventually ruined}
+  \CommentTok{\#                    returns 0 if gambler eventually wins $n}
+  
+\NormalTok{gamble }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(k,n,p) \{}
+\NormalTok{        stake }\OtherTok{\textless{}{-}}\NormalTok{ k}
+        \ControlFlowTok{while}\NormalTok{ (stake }\SpecialCharTok{\textgreater{}} \DecValTok{0} \SpecialCharTok{\&}\NormalTok{ stake }\SpecialCharTok{\textless{}}\NormalTok{ n) \{}
+\NormalTok{                bet }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{),}\DecValTok{1}\NormalTok{,}\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{p,p))}
+\NormalTok{                stake }\OtherTok{\textless{}{-}}\NormalTok{ stake }\SpecialCharTok{+}\NormalTok{ bet}
+\NormalTok{        \}}
+        \ControlFlowTok{if}\NormalTok{ (stake }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\FunctionTok{return}\NormalTok{(}\DecValTok{1}\NormalTok{) }\ControlFlowTok{else} \FunctionTok{return}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\NormalTok{        \}   }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{k }\OtherTok{\textless{}{-}} \DecValTok{2}
+
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{5}  
+
+\NormalTok{p }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{/}\DecValTok{2}  
+
+\NormalTok{trials }\OtherTok{\textless{}{-}} \DecValTok{1000}
+
+\NormalTok{simlist }\OtherTok{\textless{}{-}} \FunctionTok{replicate}\NormalTok{(trials, }\FunctionTok{gamble}\NormalTok{(k, n, p))}
+
+\FunctionTok{mean}\NormalTok{(simlist) }\CommentTok{\# Estimate of probability that gambler is ruined}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.596
+\end{verbatim}
+
+Using Gamblers ruin probability will be can be calculated by taking
+higher powers of the transition prob matrix and value taken transition
+from 2 to 0. The code is given below
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tpm }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+
+\SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\DecValTok{0}\NormalTok{ ,}\DecValTok{0}\NormalTok{ ,}\DecValTok{0}\NormalTok{,}
+
+\SpecialCharTok{+} \DecValTok{0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\DecValTok{0}\NormalTok{ ,}\FloatTok{0.5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+
+\SpecialCharTok{+} \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+
+\SpecialCharTok{+} \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{0.5}\NormalTok{,}
+
+\SpecialCharTok{+} \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{),}\AttributeTok{byrow =}\NormalTok{ T,}\AttributeTok{nrow =} \DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \FunctionTok{library}\NormalTok{(expm)   }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'expm' was built under R version 4.1.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: Matrix
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'Matrix' was built under R version 4.1.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'expm'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:Matrix':
+## 
+##     expm
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  p5}\OtherTok{\textless{}{-}}\NormalTok{ tpm }\SpecialCharTok{\%\^{}\%} \DecValTok{5}
+\NormalTok{  p5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         [,1]    [,2]    [,3]    [,4]    [,5]    [,6]
+## [1,] 1.00000 0.00000 0.00000 0.00000 0.00000 0.00000
+## [2,] 0.68750 0.00000 0.15625 0.00000 0.09375 0.06250
+## [3,] 0.37500 0.15625 0.00000 0.25000 0.00000 0.21875
+## [4,] 0.21875 0.00000 0.25000 0.00000 0.15625 0.37500
+## [5,] 0.06250 0.09375 0.00000 0.15625 0.00000 0.68750
+## [6,] 0.00000 0.00000 0.00000 0.00000 0.00000 1.00000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p15}\OtherTok{\textless{}{-}}\NormalTok{ tpm }\SpecialCharTok{\%\^{}\%} \DecValTok{15}
+
+\NormalTok{p15}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]       [,2]       [,3]       [,4]       [,5]      [,6]
+## [1,] 1.0000000 0.00000000 0.00000000 0.00000000 0.00000000 0.0000000
+## [2,] 0.7865295 0.00000000 0.01861572 0.00000000 0.01150513 0.1833496
+## [3,] 0.5730591 0.01861572 0.00000000 0.03012085 0.00000000 0.3782043
+## [4,] 0.3782043 0.00000000 0.03012085 0.00000000 0.01861572 0.5730591
+## [5,] 0.1833496 0.01150513 0.00000000 0.01861572 0.00000000 0.7865295
+## [6,] 0.0000000 0.00000000 0.00000000 0.00000000 0.00000000 1.0000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p25}\OtherTok{\textless{}{-}}\NormalTok{ tpm }\SpecialCharTok{\%\^{}\%} \DecValTok{25}
+
+\NormalTok{p25}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]        [,2]        [,3]        [,4]        [,5]      [,6]
+## [1,] 1.0000000 0.000000000 0.000000000 0.000000000 0.000000000 0.0000000
+## [2,] 0.7983821 0.000000000 0.002235919 0.000000000 0.001381874 0.1980001
+## [3,] 0.5967641 0.002235919 0.000000000 0.003617793 0.000000000 0.3973821
+## [4,] 0.3973821 0.000000000 0.003617793 0.000000000 0.002235919 0.5967641
+## [5,] 0.1980001 0.001381874 0.000000000 0.002235919 0.000000000 0.7983821
+## [6,] 0.0000000 0.000000000 0.000000000 0.000000000 0.000000000 1.0000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p50}\OtherTok{\textless{}{-}}\NormalTok{ tpm }\SpecialCharTok{\%\^{}\%} \DecValTok{50}
+\NormalTok{p50}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]         [,2]         [,3]         [,4]         [,5]      [,6]
+## [1,] 1.0000000 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.0000000
+## [2,] 0.7999900 6.908911e-06 0.000000e+00 1.117885e-05 0.000000e+00 0.1999919
+## [3,] 0.5999869 0.000000e+00 1.808776e-05 0.000000e+00 1.117885e-05 0.3999838
+## [4,] 0.3999838 1.117885e-05 0.000000e+00 1.808776e-05 0.000000e+00 0.5999869
+## [5,] 0.1999919 0.000000e+00 1.117885e-05 0.000000e+00 6.908911e-06 0.7999900
+## [6,] 0.0000000 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 1.0000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p5[}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.375
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p15[}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5730591
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ p25[}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5967641
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p50[}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5999869
+\end{verbatim}
+
+De los resultados obtenenidos los resultados de probabilidad convergen
+en 0.6 como incrementos
+
+La probabilidad exacta es (n-k)/n=(5-2)/5=0.6
+
+Resumen
+
+Exact0 = 0.6
+
+Simulacion =0.59
+
+Usando Markov Chain, tpm\^{}5 = 0.375, tpm\^{}15=.573, tpm\^{}25=0.596,
+tpm\^{}50=0.599
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gamble }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(k,n,p) \{}
+\NormalTok{    stake }\OtherTok{\textless{}{-}}\NormalTok{ k}
+    \ControlFlowTok{while}\NormalTok{ (stake }\SpecialCharTok{\textgreater{}} \DecValTok{0} \SpecialCharTok{\&}\NormalTok{ stake }\SpecialCharTok{\textless{}}\NormalTok{ n) \{}
+\NormalTok{        bet }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{),}\DecValTok{1}\NormalTok{,}\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{p,p))}
+\NormalTok{        stake }\OtherTok{\textless{}{-}}\NormalTok{ stake }\SpecialCharTok{+}\NormalTok{ bet}
+\NormalTok{    \}}
+    \ControlFlowTok{if}\NormalTok{ (stake }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\FunctionTok{return}\NormalTok{(}\DecValTok{1}\NormalTok{) }\ControlFlowTok{else} \FunctionTok{return}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\NormalTok{\} }
+
+\NormalTok{gambleVictoria }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(k,n,p) \{}
+\NormalTok{    stake }\OtherTok{\textless{}{-}}\NormalTok{ k}
+    \ControlFlowTok{while}\NormalTok{ (stake }\SpecialCharTok{\textgreater{}} \DecValTok{0} \SpecialCharTok{\&}\NormalTok{ stake }\SpecialCharTok{\textless{}}\NormalTok{ n) \{}
+\NormalTok{        bet }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{),}\DecValTok{1}\NormalTok{,}\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{p,p))}
+\NormalTok{        stake }\OtherTok{\textless{}{-}}\NormalTok{ stake }\SpecialCharTok{+}\NormalTok{ bet}
+\NormalTok{    \}}
+    \ControlFlowTok{if}\NormalTok{ (stake }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\FunctionTok{return}\NormalTok{(}\DecValTok{0}\NormalTok{) }\ControlFlowTok{else} \FunctionTok{return}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{    \} }
+\end{Highlighting}
+\end{Shaded}
+
+\# k: Gambler's initial state \# n: Gambler plays until either \$n or
+Ruin \# p: Probability of winning \$1 at each play \# Function returns 1
+if gambler is eventually ruined \# returns 0 if gambler eventually wins
+\$n
+
+See the script file gamblersruin.R. A gambler starts with a 60 initial
+stake. A) the gambler wins, and loses, each round with probability
+p=0.50. simulate the probability the gambler wins 100 before he loses
+everything. B) the gambler wins each round with probability p=0.51.
+simulate the probability the gambler wins 100 before he loses
+everything.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# gamble(k, n, p)}
+  \CommentTok{\#   k: Gambler\textquotesingle{}s initial state}
+  \CommentTok{\#   n: Gambler plays until either $n or Ruin}
+  \CommentTok{\#   p: Probability of winning $1 at each play}
+  \CommentTok{\#   Function returns 1 if gambler is eventually ruined}
+  \CommentTok{\#                    returns 0 if gambler eventually wins $n}
+
+\NormalTok{k }\OtherTok{\textless{}{-}} \DecValTok{60} 
+\NormalTok{n }\OtherTok{\textless{}{-}}  \DecValTok{100}  
+\NormalTok{p }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{/}\DecValTok{2} 
+\NormalTok{p2 }\OtherTok{\textless{}{-}} \FloatTok{0.51}  
+
+\CommentTok{\#Para a }
+
+\NormalTok{trials0 }\OtherTok{\textless{}{-}} \DecValTok{100}
+\NormalTok{simlist0 }\OtherTok{\textless{}{-}} \FunctionTok{replicate}\NormalTok{(trials, }\FunctionTok{gambleVictoria}\NormalTok{(k, n, p))}
+\NormalTok{xprove0 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(simlist0) }
+\FunctionTok{print}\NormalTok{(xprove0)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.609
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#para b}
+
+\NormalTok{trials }\OtherTok{\textless{}{-}} \DecValTok{100}
+\NormalTok{simlist }\OtherTok{\textless{}{-}} \FunctionTok{replicate}\NormalTok{(trials0, }\FunctionTok{gambleVictoria}\NormalTok{(k, n, p2))}
+\NormalTok{xprove }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(simlist) }
+\FunctionTok{print}\NormalTok{(xprove)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.92
+\end{verbatim}
+
+2.14 There are k songs on Mary's music player. The player is set to
+shufle mode, which plays songs uniformly at random, sampling with
+replacement. Thus, repeats are possible. Let \(X_n\) denote the number
+of \(unique\) songs that have been heard after the \(n\)th play.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Show that \(X_0\), \(X_1\),\ldots is a Markov chain and give the
+  transition matrix.
+\end{enumerate}
+
+La matriz de transicion de estado n es 0,1,2,k que denota los numeros de
+canciones que solo se reprodujeron una sola vez.
+
+La probabilidad de transicion del estado 1 al estado \(2-y\) (\(1-k\))
+
+\begin{pmatrix}
+estados & 0 & 1 & 2 & - & m & m+1 & - & k-1 & k\\ 
+      0 & 0 & 1 & 0 & - & 0 &   0 & - &   0 & 0\\ 
+      1 & 0 & 0/k & ()k-1k & 0 & - & 0 & - & 0 & 0\\ 
+      - & - & -   &      - & - & - & - & - & - & - \\ 
+      m & 0 & 0   &      0 & - & m/k & (k-m)/k & (k-1)/k & 1/k\\ 
+      - & - & -   &      - & - &  -  &       0 &       0 &    1\\ 
+      k & 0 & 0 &0 &0 & 0 & 0 & 0 & 0 & 1\\
+\end{pmatrix}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  If Mary has four songs on her music player, ind the probability that
+  all songs are heard after six plays
+\end{enumerate}
+
+P = \$ \textbackslash begin\{pmatrix\} estados \& 0 \& 1 \& 2 \& 3 \& 4
+\textbackslash{} 0 \& 0 \& 1 \& 0 \& 0 \& 0 \textbackslash{} 1 \& 0 \&
+1/4 \& 3/4 \& 0 \& 0 \textbackslash{} 2 \& 0 \& 0 \& 1/2 \& 1/2 \& 0
+\textbackslash{} 3 \& 0 \& 0 \& 0 \& 3/4 \& 1/4\textbackslash{} 4 \& 0
+\& 0 \& 0 \& 0 \& 1\textbackslash{} \$
+
+Realizando la multiplicacion de seis veces la matriz de transcision al
+estado de 4 canciones
+
+\end{document}
