@@ -52,6 +52,7 @@ resultado0 <- poisson_multiplicado(18,2,52,5,10)
 print(resultado0)
 
 ```
+
 ##### Proceso de Poisson traducido
 
 On election day, people arrive at a voting center according to a Pois-
@@ -108,22 +109,24 @@ hist(amy,xlab="Amy",prob=T,ylab="",main="")
 hist(zach,xlab="Zach",prob=T,ylab="",main="")
 ```
 
-Una estación de metro de Boston da servicio a las líneas roja, verde y naranja.
-Los subterráneos de cada línea llegan a la estación de acuerdo con tres Poisson independientes.
-procesos. En promedio, hay un tren rojo cada 10 minutos, un tren verde cada
-15 minutos y un tren naranja cada 20 minutos.
+Una estación de metro de Boston da servicio a las líneas roja, verde y
+naranja. Los subterráneos de cada línea llegan a la estación de acuerdo
+con tres Poisson independientes. procesos. En promedio, hay un tren rojo
+cada 10 minutos, un tren verde cada 15 minutos y un tren naranja cada 20
+minutos.
 
-i) Cuando llegue a la estación, ¿cuál es la probabilidad de que el primer metro que llega es por la linea verde?
-ii)¿Cuánto tiempo esperará, en promedio, antes de que llegue algún tren?
-iii)Ha estado esperando 20 minutos por un tren rojo y ha visto tres
-pasan los trenes naranjas. ¿Cuál es el tiempo adicional esperado que esperará
-tu metro?
+i)  Cuando llegue a la estación, ¿cuál es la probabilidad de que el
+    primer metro que llega es por la linea verde? ii)¿Cuánto tiempo
+    esperará, en promedio, antes de que llegue algún tren? iii)Ha estado
+    esperando 20 minutos por un tren rojo y ha visto tres pasan los
+    trenes naranjas. ¿Cuál es el tiempo adicional esperado que esperará
+    tu metro?
 
-i)
-Sean XG, XR y XO, respectivamente, los tiempos de las primeras luces verde, roja y roja.
-subterráneos naranjas que llegan a la estación. El evento de que el primer subterráneo es
-verde es el evento de que XG es el mínimo de los tres aleatorios independientes
-variables La probabilidad deseada es:
+ii) Sean XG, XR y XO, respectivamente, los tiempos de las primeras luces
+    verde, roja y roja. subterráneos naranjas que llegan a la estación.
+    El evento de que el primer subterráneo es verde es el evento de que
+    XG es el mínimo de los tres aleatorios independientes variables La
+    probabilidad deseada es:
 
 P(min(XG, XR, XO) = XG) = (1∕15) / (1∕10 + 1∕15 + 1∕20) = 4/13 = 0.31.
 
@@ -162,6 +165,7 @@ tiempo_promedio <- function(){
 }
 
 ```
+
 ```{r}
 tiempo_promedio <- function(datos){
   sim <- replicate(10000,min(rexp(1,1/10),rexp(1,1/15),rexp(1,1/20)))
@@ -172,23 +176,30 @@ tiempo_promedio <- function(datos){
 segundo <- tiempo_promedio(datos)
 print(segundo)
 ```
-Su tiempo de espera es independiente de las llegadas naranjas. por falta de memoria de tiempos entre llegadas, el tiempo de espera adicional para la línea roja tiene el mismo distribución como el tiempo de espera original. Esperarás, en promedio, 10 más minutos.
 
+Su tiempo de espera es independiente de las llegadas naranjas. por falta
+de memoria de tiempos entre llegadas, el tiempo de espera adicional para
+la línea roja tiene el mismo distribución como el tiempo de espera
+original. Esperarás, en promedio, 10 más minutos.
 
---------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 Los momentos en que se marcan goles en hockey se modelan como un Poisson
-proceso en Morrison (1976). Para tal proceso, suponga que el tiempo promedio entre
-goles es de 15 minutos.
+proceso en Morrison (1976). Para tal proceso, suponga que el tiempo
+promedio entre goles es de 15 minutos.
 
-(i) En un juego de 60 minutos, encuentre la probabilidad de que ocurra un cuarto gol en los últimos 5
-minutos del juego.
+(i) En un juego de 60 minutos, encuentre la probabilidad de que ocurra
+    un cuarto gol en los últimos 5 minutos del juego.
 
 <center>
+
 <img src="./imagenes/uno.jpg" style="width:500px"/>
+
 </center>
 
-**Funcion para buscar las probabilidades de un evento dado tiempo promedio**
+**Funcion para buscar las probabilidades de un evento dado tiempo
+promedio**
+
 ```{r}
 pgammatiempo <- function(tiempo_total,minutos, lambda,valor_esperado){
   tiempo_final <- tiempo_total-minutos
@@ -199,37 +210,38 @@ pgammatiempo <- function(tiempo_total,minutos, lambda,valor_esperado){
 print(pgammatiempo(60,5,1/15,4))
 ```
 
-
-(ii) Suponga que se marcan al menos tres goles en un partido. ¿cual es el tiempo medio
-del tercer gol?
+(ii) Suponga que se marcan al menos tres goles en un partido. ¿cual es
+     el tiempo medio del tercer gol?
 
 <center>
+
 <img src="./imagenes/dos.jpg" style="width:500px"/>
+
 </center>
 
 $$pendiente$$
 
-Comenzando en el tiempo t = 0, los clientes llegan a un restaurante de acuerdo con un
-Proceso Poisson con tasa 20 clientes por hora.
-(i) Halle la probabilidad de que el cliente número 60 llegue en el intervalo [2.9, 3].
+Comenzando en el tiempo t = 0, los clientes llegan a un restaurante de
+acuerdo con un Proceso Poisson con tasa 20 clientes por hora. (i) Halle
+la probabilidad de que el cliente número 60 llegue en el intervalo [2.9,
+3].
 
+El tiempo de la llegada número 60 S60 tiene una distribución gamma con
+parámetros n = 60 y lambda= 20. La probabilidad deseada es P(2.9 \< S60
+\< 3). En R, escriba
 
-
-El tiempo de la llegada número 60 S60 tiene una distribución gamma con parámetros
-n = 60 y  lambda= 20. La probabilidad deseada es P(2.9 < S60 < 3). En R, escriba
 ```{r}
 pgamma(3,60,20)-pgamma(2.9,60,20)
 ```
 
+(ii) Si 60 personas llegan al restaurante en el tiempo t = 3, encuentre
+     la probabilidad de que el El cliente número 60 llega en el
+     intervalo [2.9, 3].
 
-(ii) Si 60 personas llegan al restaurante en el tiempo t = 3, encuentre la probabilidad de que el
-El cliente número 60 llega en el intervalo [2.9, 3].
+R: Simulating a Poisson Process on [0, t] Following is a simulation of
+the arrival times of a Poisson process with parameter lambda = 1∕2 on
+[0, 30]. \##### poissonsim.R
 
-
-R: Simulating a Poisson Process on [0, t]
-Following is a simulation of the arrival times of a Poisson process with parameter
-lambda = 1∕2 on [0, 30].
-##### poissonsim.R
 ```{r}
 t <- 30
 lambda <- 1/2
@@ -238,19 +250,22 @@ unifs <- runif(N,0,t)
 arrivals <- sort(unifs)
 arrivals
 ```
+
 ```{r}
 plot(arrivals, pch=20, cex=2)
 ```
 
-Un proceso de Poisson espacial en el plano tiene el parámetro lambda = 1∕2.
-Encuentre la probabilidad de que un disco de radio 2 con centro en (3, 4) contenga exactamente 5 puntos.
+Un proceso de Poisson espacial en el plano tiene el parámetro lambda =
+1∕2. Encuentre la probabilidad de que un disco de radio 2 con centro en
+(3, 4) contenga exactamente 5 puntos.
 
-
-Sea C el disco. Entonces |C| = pi * r **2 = 4 ** pi. La probabilidad deseada es
+Sea C el disco. Entonces \|C\| = pi \* r **2 = 4** pi. La probabilidad
+deseada es
 
 ```{r}
 dpois(5,2*3.14159)
 ```
+
 ```{r}
 lambda <- 100
 squarearea <- 1
@@ -265,16 +280,17 @@ ct <- sum(((xpoints-0.7) ^ 2+(ypoints-0.7) ^ 2)<=0.2 ^ 2)
 simlist[i] <- ct } # number of points in circle
 mean(simlist)
 ```
+
 ```{r}
 var(simlist)
 ```
+
 ```{r}
 # Compare with theoretical mean and variance
 lambda*pi*(0.2) ^ 2
 ```
-------------------------------------
 
-
+------------------------------------------------------------------------
 
 ```{r}
 # waitingparadox.R
@@ -290,28 +306,248 @@ simlist <- numeric(trials)
 simlist[i] <- wait }
 mean(simlist)
 ```
-6.2 ) Let (Nt)t?0 be a Poisson process with parameter = 1.5. Find the following: (a) P(N1 =2,N4 =6) (b) P(N4 = 6|N1 = 2) (c) P(N1 = 2|N4 = 6)
 
+6.2 ) Let (Nt)t?0 be a Poisson process with parameter = 1.5. Find the
+following: (a) P(N1 =2,N4 =6) (b) P(N4 = 6\|N1 = 2) (c) P(N1 = 2\|N4 =
+6)
 
 <center>
+
 <img src="./imagenes/tres.png" style="width:500px"/>
+
 </center>
 
 <br>
 
 <center>
+
 <img src="./imagenes/punto_cuatro.png" style="width:500px"/>
+
 </center>
 
 <br>
 
 <center>
+
 <img src="./imagenes/cuatro.png" style="width:500px"/>
+
 </center>
 
+------------------------------------------------------------------------
+
+6.3) Las llamadas se reciben en un centro de llamadas de la empresa de
+acuerdo con un proceso de Poisson en la tasa de cinco llamadas por
+minuto.
+
+(a) Encuentre la probabilidad de que no ocurra ninguna llamada durante
+    un período de 30 segundos.
+
+dpois : devuelve el valor de la función de densidad de probabilidad de
+Poisson. ppois : devuelve el valor de la función de densidad acumulativa
+de Poisson. qpois : devuelve el valor de la función de densidad
+acumulativa de Poisson inversa. rpois : genera un vector de variables
+aleatorias distribuidas de Poisson.
+
+```{r}
+#0 llamadas , 30 segundos => 5 llamadas promedio * 1/2 
+dpois(0,5*1/2)
+```
+
+b)  Encuentre la probabilidad de que ocurran exactamente cuatro llamadas
+    en el primer minuto y seis las llamadas ocurren en el segundo
+    minuto.
+
+```{r}
+dpois(4,5) * dpois(6,5) 
+```
+
+c)  Encuentre la probabilidad de que se reciban 25 llamadas en los
+    primeros 5 minutos y seis de esas llamadas ocurren en el primer
+    minuto.
+
+```{r}
+dpois(6,5) * dpois(19,5*4) 
+```
+
+------------------------------------------------------------------------
+
+6.4) A partir de las 9 a. m., los pacientes llegan al consultorio de un
+médico según un proceso de Poisson. En promedio, llegan tres pacientes
+cada hora.
+
+(a) Calcule la probabilidad de que al menos dos pacientes lleguen a las
+    9:30 a. m.
+
+```{r}
+#lambda = 3/2 = 1.5
+resultado <- 1 - ppois(1,1.5)
+resultado
+```
+
+(b) Halle la probabilidad de que 10 pacientes lleguen al mediodía y ocho
+    de ellos lleguen al consultorio antes de las 11 a. m.
+
+```{r}
+#lambda para dos horas -> 6
+#lambda para una hora -> 3
+
+dpois(8,6) * dpois(2,3) 
+```
+
+(c) Si llegan seis pacientes a las 10 a. m., encuentre la probabilidad
+    de que solo llegue un paciente a las 9:15 a. m.
+
+```{r}
+#lambda para dos horas -> 6
+#lambda para una hora -> 3
+
+dpois(8,6) * dpois(2,3) 
+```
+
+6.5)
+
+<img src="https://d2vlcm61l7u1fs.cloudfront.net/media%2F0b8%2F0b8216a4-9d0e-400a-b269-64f76d2b5a41%2FphpDOB2Zg.png"/>
+MIENTRAS CALCULA,
+
+\$ E((N3)\^2)=E(N3N3)=E(N3(N6-N3))=E(N3)\*E(N6-N3) \$
+
+AQUI NO PODEMOS CONCLUIR $E(N6-N3)=E(N3)$
+
+YA QUE AMBOS N6 Y N3 SON VALORES DIFERENTES EN LOS PROCESOS DE POISSON.
+
+POR LO TANTO NO PODEMOS CONCLUIR QUE $E((N3)^2)=(E(N3)^2)$
+
+ENTONCES PODEMOS DECIR QUE $VAR(N3)$ NO ES IGUAL A 0
+
+6.6)
+
+<img src="https://media.cheggcdn.com/media%2F3d5%2F3d5d5434-3dfe-4314-907e-3d37ffd3b3e9%2FphpQoQubR.png"/>
+
+Resultado
+
+<img src="https://media.cheggcdn.com/media%2F6b2%2F6b26f3d5-a8e2-484e-b7f6-a0177fc58434%2Fphpz8seu8.png"/>
+
+6.7)
+<img src="https://media.cheggcdn.com/media/933/933d4809-5dc8-4750-9216-5112fc248c51/php0LNTQC"/>
+
+Resultado
+
+<img src="https://media.cheggcdn.com/coop/d2b/d2bd1e91-3a38-466b-94d5-2fabf6f5cca6/1610728988089_blob"/>
+
+|                                                                                                            |
+|:-----------------------------------------------------------------------|
+| 6.8)                                                                                                       |
+| <img src="https://media.cheggcdn.com/media%2F59a%2F59ac7ec6-e04f-481f-90ff-f922f88dfba5%2Fimage.png"/>     |
+| Resultado                                                                                                  |
+| <img src="https://media.cheggcdn.com/media%2F376%2F37677e89-06dc-4b12-b62f-8fd8a4dbf727%2Fphpj9QO1j.png"/> |
+| <img src="https://media.cheggcdn.com/media%2F9bb%2F9bb046b4-f563-4ea2-9a22-a0735a7de839%2FphpMJBeXa.png"/> |
+| <img src="https://media.cheggcdn.com/media%2F14a%2F14a9dba3-2971-457e-b3e9-1ece82c23e20%2FphpLEEgO8.png"/> |
+
+6.9)
+
+ouch
+
+6.13)
+
+pendiente
+
+6.14)
+
+<img src="https://media.cheggcdn.com/media%2F7b6%2F7b6ba8c2-c022-4733-ba6e-a3ff2b07abb7%2Fphplev3bw.png"/>
+
+<img src="https://media.cheggcdn.com/media%2Fb86%2Fb86cddcd-7817-48df-94ef-81dae7e38aff%2FphpOdP2te.png"/>
+
+6.15)
+
+Failures occur for a mechanical process according to a Poisson process.
+Failures are classied as either major or minor. Major failures occur at
+a rate of 1.5 failures per hour. Minor failures occur at a rate of 3.0
+failures per hour. - (a) Find the probability that two failures occur in
+1 hour. - (b) Find the probability that in half an hour, no major
+failure occurs. - (c) Find the probability that in 2 hours, at least two
+major failures occur or at least two minor failures occur. - (d) For
+major failure, nd the probability that the time interval between two
+failures is between half an hour and one hour.
+
+<img src="https://media.cheggcdn.com/media%2F3ab%2F3ab9f8a3-e204-40a4-b755-4f199569c9a9%2Fphp2S5irz.png"/>
+
+
+6.16)
+
+<img src="https://d2vlcm61l7u1fs.cloudfront.net/media%2F50e%2F50ef8e90-792d-44f4-9674-f3a8ee3d3593%2FphpHQkLhY.png">
+
+Resultado
+
+
+<img src="https://d2vlcm61l7u1fs.cloudfront.net/media%2F23d%2F23dd727e-5b0a-4dd4-be7f-d406c28e2a81%2FphpEX0V7M.png">
+
+6.17)     
+
+
+<img src="https://media.cheggcdn.com/media/9e9/9e9990c2-3f7e-4c9f-9c5c-89ffa8c7d96b/phpBbYijK">
+
+<img src="https://media.cheggcdn.com/coop/030/030f26fb-9d2d-49af-9de5-f221588b52bf/1671203953957_20221216_204834.jpg">
+
+<img src="https://media.cheggcdn.com/coop/905/9053839f-e051-4266-b55b-8560f09055fe/1671204077330_20221216_204816.jpg">
+
+<img src="https://media.cheggcdn.com/coop/0af/0af89cf0-dabf-4542-bc60-8ee3e91433f5/1671204280560_20221216_204736.jpg">
+
+<img src="https://media.cheggcdn.com/coop/7d9/7d977e59-e0f2-4a38-a61e-90e532b8303d/1671204451196_20221216_204736.jpg">
+
+
+6.18)
+
+Resultado:
+
+
+(a): Dado que hay un planeta por análisis cúbico. es decir, suponiendo que si existe un planeta en el centro de cada cubo, podemos decir que a una distancia de cada parsec encontraremos un planeta.
+
+Por esta suposición \lambda en la distribución de Poisson se convierte en = 1
+
+por lo tanto, la función de densidad de probabilidad de X : P(X)= e-\lambda(\lambdaX/X!)
+
+es decir, P(X) = e-1/X!
+
+(b) La distancia media de la estrella de la muerte al planeta más cercano es E(x) = \lambda = 1parsec
 
 
 
+6.25)
+Computers in the lab fail, on average, twice a day, according to a Poisson pro- cess. Last week, 10 computers failed. Find the expected time of the last failure, and give an approximate time of day when the last failure occurred.
+
+<img src="https://media.cheggcdn.com/coop/c68/c6864411-834d-4f20-8341-4348d796d0a2/1616825506754_IMG_20210327_0001.jpg>
+
+6.26) 
+<img src="https://media.cheggcdn.com/media/263/2638c2b1-fc2f-47a4-a568-a11ebc5d2842/php1RbYK3">
+
+6.27)
+
+Not found
+
+6.28)
+
+<img src="https://media.cheggcdn.com/media%2Fe9a%2Fe9a389a2-a036-4043-aed1-df5dc0d69d2c%2Fimage">
+
+<img src="https://media.cheggcdn.com/media/a69/a69be5c7-e016-4816-ad08-d4d4d51757a5/1584515636763_4a.png">
+
+6.29)
+
+<img src="https://media.cheggcdn.com/media%2Ffa6%2Ffa63f289-d9db-4978-80ca-ee80527179fd%2Fimage">
+
+<img src="https://media.cheggcdn.com/coop/e1b/e1b678f9-56d9-4a50-a46a-fa4e0212e2b3/1657276840640_IMG-20220708-WA0018.jpg">
+
+6.38)
+<img src="https://media.cheggcdn.com/media%2Fb21%2Fb215ac6e-c387-481d-a620-1027a8a39fa4%2Fimage">
+
+<img src="https://d2vlcm61l7u1fs.cloudfront.net/media%2F8b5%2F8b57a638-4804-4364-bec4-800334d4ff6a%2FphpTRhggd.png">
+
+<img src="https://d2vlcm61l7u1fs.cloudfront.net/media%2F41a%2F41ab2faa-40ec-4b8a-97d6-e435f3c1022b%2FphpgJU4SF.png">
+
+6.40)
+
+
+6.41)
+Goals occur in a soccer game according to a Poisson Process. The average total number of goals scored in a 90-minute match is 2,5. Assume that two teams are evenly matched. Estimate the Probability both teams will score the same number of goals.
 
 
 

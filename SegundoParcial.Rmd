@@ -1,0 +1,12 @@
+Adolfo Huerta Ramírez
+
+
+```{r}
+t <- 30
+lambda <- 1/2
+N <- rpois(1,lambda*t)
+unifs <- runif(N,0,t)
+arrivals <- sort(unifs)
+arrivals
+```
+
